@@ -17,6 +17,7 @@ export default function App() {
   const [gameState, setGameState] = useState<'PLAYING' | 'WIN' | 'LOSE'>('PLAYING');
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isInstructionsOpen, setIsInstructionsOpen] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const { width, height } = useWindowSize();
 
   const normalizeName = (name: string) => aliasMap[name.toLowerCase()] || name;
@@ -125,18 +126,27 @@ export default function App() {
           <div className="flex-grow relative">
             <input
               value={currentGuess}
-              onChange={(e) => setCurrentGuess(e.target.value)}
+              onChange={(e) => {
+                setCurrentGuess(e.target.value);
+                setIsDropdownVisible(true);
+              }}
               placeholder="Enter a country name..."
               className="w-full py-4 px-6 text-lg rounded-xl bg-gray-800 border-2 border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition-all text-white placeholder-gray-400"
-              onKeyDown={(e) => e.key === 'Enter' && handleGuess()}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    setIsDropdownVisible(false);
+                    handleGuess();
+                }
+              }}
             />
-            {filteredCountries.length > 0 && (
-              <ul className={`absolute z-10 w-full ${cardClasses} border rounded mt-1 max-h-48 overflow-y-auto shadow-lg`}>
+            {filteredCountries.length > 0 && isDropdownVisible && (
+              <ul className={`absolute z-50 w-full ${cardClasses} border rounded mt-1 max-h-48 overflow-y-auto shadow-xl`}>
                 {filteredCountries.map(country => (
                   <li 
                     key={country}
                     onClick={() => {
                         setCurrentGuess(country);
+                        setIsDropdownVisible(false);
                     }}
                     className="p-3 hover:bg-gray-600/20 cursor-pointer"
                   >
