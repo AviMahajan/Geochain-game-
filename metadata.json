@@ -1,0 +1,6 @@
+{
+  "name": "GeoChain",
+  "description": "A geography puzzle game where you connect countries using intermediate steps.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
