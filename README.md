@@ -57,24 +57,23 @@ npm run dev
 <img width="755" height="791" alt="5" src="https://github.com/user-attachments/assets/ff83e621-f471-40c5-8be7-47370315195a" />
 <img width="818" height="832" alt="6" src="https://github.com/user-attachments/assets/b2229c42-5c8c-4abd-a1c4-f90249dd4347" />
 
+
 🔮 Future Improvements
 Dynamic path generation using graph traversal
 AI-based hints and explanations
 Map-based visualization
 More levels and difficulty modes
 Leaderboard and scoring system
-🤝 Contributing
 
+🤝 Contributing
 Contributions, ideas, and feedback are welcome!
 Feel free to open an issue or submit a PR.
 
 📬 Feedback
-
 If you try the game, I’d love to hear:
-
 Which level you got stuck on
 What felt intuitive vs confusing
 Ideas to make it more engaging
-⭐ Support
 
+⭐ Support
 If you like the project, consider giving it a ⭐ on GitHub!
